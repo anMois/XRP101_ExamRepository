@@ -11,7 +11,7 @@ public class BulletController : PooledBehaviour
 
     private Rigidbody _rigidbody;
     private WaitForSeconds _wait;
-    
+
     private void Awake()
     {
         Init();
@@ -29,6 +29,7 @@ public class BulletController : PooledBehaviour
             other.transform.parent
                 .GetComponent<PlayerController>()
                 .TakeHit(_damageValue);
+            ReturnPool();
         }
     }
 

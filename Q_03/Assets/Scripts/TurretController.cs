@@ -21,8 +21,15 @@ public class TurretController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("1");
             Fire(other.transform);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            StopCoroutine(_coroutine);
         }
     }
 
