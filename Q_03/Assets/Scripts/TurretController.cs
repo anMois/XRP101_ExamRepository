@@ -45,7 +45,10 @@ public class TurretController : MonoBehaviour
         while (true)
         {
             yield return _wait;
-            
+
+            if(target.parent.gameObject.activeSelf == false)
+                yield break;
+
             transform.rotation = Quaternion.LookRotation(new Vector3(
                 target.position.x,
                 0,

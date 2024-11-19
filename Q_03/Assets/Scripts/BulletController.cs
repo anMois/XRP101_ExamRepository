@@ -29,7 +29,6 @@ public class BulletController : PooledBehaviour
             other.transform.parent
                 .GetComponent<PlayerController>()
                 .TakeHit(_damageValue);
-            ReturnPool();
         }
     }
 
