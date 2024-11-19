@@ -21,9 +21,7 @@ public class CubeManager : MonoBehaviour
 
     private void SetCubePosition(float x, float y, float z)
     {
-        _cubeSetPoint.x = x;
-        _cubeSetPoint.y = y;
-        _cubeSetPoint.z = z;
+        _cubeController.SetPoint = new Vector3(x, y, z);
         _cubeController.SetPosition();
     }
 
