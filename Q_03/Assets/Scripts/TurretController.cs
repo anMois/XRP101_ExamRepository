@@ -25,6 +25,14 @@ public class TurretController : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            StopCoroutine(_coroutine);
+        }
+    }
+
     private void Init()
     {
         _coroutine = null;
@@ -37,7 +45,10 @@ public class TurretController : MonoBehaviour
         while (true)
         {
             yield return _wait;
-            
+
+            if(target.parent.gameObject.activeSelf == false)
+                yield break;
+
             transform.rotation = Quaternion.LookRotation(new Vector3(
                 target.position.x,
                 0,
