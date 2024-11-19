@@ -26,7 +26,7 @@ public class BulletController : PooledBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other
+            other.transform.parent
                 .GetComponent<PlayerController>()
                 .TakeHit(_damageValue);
         }
