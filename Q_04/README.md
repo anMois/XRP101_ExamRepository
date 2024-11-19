@@ -18,4 +18,10 @@
 제시된 프로젝트에서 발생하는 `문제들을 모두 서술`하고 올바르게 동작하도록 `소스코드를 개선`하시오.
 
 ## 답안
-- 
+#### Q. 플레이어가 공격하면 NullRefernce 오류 발생
+- 원인. 플레이어가 공격할 때 범위에 있는 콜라이더를 다 가져와서 각 콜라이더의 IDamagable을 가져오는 데 없는 오브젝트도 있어서 NullRefernce가 발생
+- A. IDamagable을 가지고 있지 않는 콜라이더는 넘기고 다음 콜라이더를 찾게 함
+
+#### Q. 플레이어가 공격 후 Idle 넘어갈때 StackOverFlow 오류 발생
+- 원인. 공격 후 Exit 함수로 나가는데 나갈 때 ChangeState를 통해 Idle 변경을 신청하는데 ChangeState 함수에도 처음에 해당 Exit를 실행하므로 돌고 돌게되어서 StackOverFlow 발생
+- A. 공격 후 Exit 함수로 나가지말고 바로 ChangeState로 나가게 함. Exit 함수 안에 있는 ChangeState는 삭제
